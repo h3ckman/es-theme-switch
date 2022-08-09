@@ -11,11 +11,10 @@ based on:       Switch Theme for Launchbox by Grila
 	<formatVersion>4</formatVersion>
 	
 	<!--Choose Aspect Ratio (16_9, 4_3)-->
-	<include>./settings/16_9.xml</include>
-	<!----------------------------------->	
+	<include>./settings/4_3.xml</include>
 	
 	<variables>
-			<mainFont>./assets/Oxygen-Regular.ttf</mainFont>
+		<mainFont>./assets/Oxygen-Regular.ttf</mainFont>
 	</variables>
 	
 	<include>./config.xml</include>
@@ -41,10 +40,29 @@ based on:       Switch Theme for Launchbox by Grila
 		<image name="arrowblock" extra="true">
 			<pos>0.03 0.22</pos>
 			<path>./assets/arrow_block.svg</path>
-		</image>	
-	
+		</image>
+
 	</view>
-		<view name="system, basic, detailed, video">	
+
+	<view name="system">
+		<text name="system_name_1" extra="true">
+			<text>${system.fullName}</text>
+			<size>0.95 0.015</size>
+			<pos>0.05 0.08</pos>
+			<origin>0 0</origin>
+			<fontSize>0.058</fontSize>
+			<alignment>left</alignment>
+			<fontPath>${mainFont}</fontPath>
+		</text>
+
+		<image name="arrowblock" extra="true">
+			<pos>0.01 0.055</pos>
+			<path>./assets/arrow_block.svg</path>
+			<size>0.028 0.06</size>
+			<origin>0 0</origin>
+		</image>	
+	</view>
+	<view name="system, basic, detailed, video">	
 
 		<helpsystem name="help">
 			<textColor>22222200</textColor>
@@ -76,22 +94,29 @@ based on:       Switch Theme for Launchbox by Grila
 		<textlist name="gamelist">
 			<fontPath>${mainFont}</fontPath>
 			<scrollSound>./assets/Move.wav</scrollSound>
-			<fontSize>0.028</fontSize>
+			<fontSize>0.05</fontSize>
 			<horizontalMargin>0.01</horizontalMargin>
-			<lineSpacing>2.3</lineSpacing>
+			<lineSpacing>1.5</lineSpacing>
 		</textlist>	
 		
 		
 		<text name="system_name_1" extra="true">
 			<text>${system.fullName}</text>
-			<forceUppercase>0</forceUppercase>
-			<size>0.743 0.031</size>
-			<pos>0.034 0.065</pos>
-			<fontSize>0.03</fontSize>
+			<size>0.95 0.015</size>
+			<pos>0.05 0.08</pos>
+			<origin>0 0</origin>
+			<fontSize>0.058</fontSize>
 			<alignment>left</alignment>
 			<fontPath>${mainFont}</fontPath>
 		</text>
 		
+		<image name="arrowblock" extra="true">
+			<pos>0.01 0.055</pos>
+			<path>./assets/arrow_block.svg</path>
+			<size>0.028 0.06</size>
+			<origin>0 0</origin>
+		</image>
+
 		<image name="logo">
 			<color>00000000</color>
 			<path>./assets/box.png</path>
@@ -127,74 +152,81 @@ based on:       Switch Theme for Launchbox by Grila
 	<view name="detailed, video">
 		
 		<textlist name="gamelist">
-			<pos>0.04 0.182</pos>
-			<size>0.31 0.682</size>
+			<pos>0.01 0.13</pos>
+			<!-- <size>0.31 0.682</size> -->
+			<!-- <origin>1.05 0.075</origin> -->
+			<size>.45 .79</size>
 			<alignment>left</alignment>
 			<selectorImagePath>./assets/selector.png</selectorImagePath>
 			<selectorHeight>0.06</selectorHeight>
-			<selectorOffsetY>-0.008</selectorOffsetY>
+			<selectorOffsetY>0.007</selectorOffsetY>
 		</textlist>	
-		
-		<text name="md_description">
-			<forceUppercase>0</forceUppercase>
-			<fontSize>0.025</fontSize>
-			<size>0.309 0.336</size>
-			<pos>0.657 0.387</pos>
+
+		<video name="md_video">
+			<origin>0.5 0.5</origin>
+			<pos>0.75 0.50</pos>
+			<maxSize>0.5 0.8</maxSize>
+			<delay>1</delay>
+			<zIndex>2</zIndex>         
+			<showSnapshotNoVideo>true</showSnapshotNoVideo>
+			<showSnapshotDelay>true</showSnapshotDelay>
+		</video>
+
+		<text name="md_description, md_lbl_players, md_players, md_lbl_developer, md_developer, md_lbl_publisher, md_publsher, md_lbl_genre, md_genre, md_lbl_playcount, md_playcount, md_lbl_lastplayed, md_lbl_releasedate, md_lbl_rating">
+			<pos>1 1</pos>
 		</text>
-		
+
+		<datetime name="md_lastplayed, md_releasedate">
+			<pos>1 1</pos>
+		</datetime>
+
 		<rating name="md_rating">
-			<pos>0.657 0.747</pos>
-			<size>0.27 0</size>
+			<pos>1 1</pos>
 		</rating>
 	
 	</view>
+	
 	<view name="basic">
-		
 		<textlist name="gamelist">
 			<pos>0.04 0.182</pos>
 			<size>0.924 0.682</size>
 			<alignment>center</alignment>
 		</textlist>	
-
 	</view>
-	<view name="detailed">
-		
+	
+	<view name="detailed">	
 		<image name="md_image">
-			<pos>0.360 0.180</pos>
-			<maxSize>0.277 0.615</maxSize>
-			<origin>0 0</origin>
+			<origin>0 0.5</origin>
+			<pos>0.46 0.50</pos>
+			<maxSize>0.54 0.8</maxSize>
 		</image>
-	
 	</view>
 	
-<feature supported="carousel">
-  
-  <view name="system">
+	<feature supported="carousel">
+		<view name="system">
+			<carousel name="systemcarousel">
+				<type>horizontal</type>
+				<pos>0 0</pos> 
+				<size>1 1</size> 
+				<color>00000000</color>
+				<logoScale>1</logoScale>
+				<logoSize>1 0.65</logoSize>
+				<maxLogoCount>1.5</maxLogoCount>
+			</carousel>
 
-    <carousel name="systemcarousel">
-      <type>horizontal</type>
-      <pos>0 0.3</pos> 
-      <size>1 .4</size> 
-      <color>00000000</color>
-      <logoScale>1</logoScale>
-      <logoSize>0.234 0.397</logoSize>
-      <maxLogoCount>3.5</maxLogoCount>
-    </carousel>
+			<text name="systemInfo">
+				<backgroundColor>dddddd00</backgroundColor>
+				<forceUppercase>0</forceUppercase>
+				<fontSize>0.04</fontSize>
+				<pos>0.5 0.87</pos>
+				<origin>0.5 0.5</origin>
+				<forceUppercase>0</forceUppercase>
+				<fontPath>${mainFont}</fontPath>
+			</text>
+		</view>
+	</feature>
 
-    <text name="systemInfo">
-      <backgroundColor>dddddd00</backgroundColor>
-      <forceUppercase>0</forceUppercase>
-      <fontSize>0.03</fontSize>
-	  <pos>0.5 0.75</pos>
-	  <origin>0.5 0.5</origin>
-	  <forceUppercase>0</forceUppercase>
-	  <fontPath>${mainFont}</fontPath>
-    </text>
-
-  </view>
-
- </feature>
-  <view name="video">
+  <!-- <view name="video">
 		
 	  <image name="md_marquee">
 			<origin>0.5 0.5</origin>
@@ -211,5 +243,5 @@ based on:       Switch Theme for Launchbox by Grila
 			<showSnapshotDelay>true</showSnapshotDelay>
 		</video>
 	
-</view>	
+</view>	 -->
 </theme>

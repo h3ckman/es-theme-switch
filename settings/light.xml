@@ -21,7 +21,7 @@ based on:       Switch Theme for Launchbox by Grila
  
 	</variables>
 		
-		<view name="system">
+	<view name="system">
 	
 		<text name="system_name_1" extra="true">
 			<color>${systemColor}</color>
@@ -34,7 +34,14 @@ based on:       Switch Theme for Launchbox by Grila
 	</view>
 		
 	<view name="system, basic, detailed, video">
+		<text name="system_name_1" extra="true">
+			<color>${systemColor}</color>
+		</text>
 		
+		<image name="arrowblock" extra="true">
+			<color>${systemColor}</color>
+		</image>
+
 		<image name="background">
 			<color>${backgroundColor}</color>
 		</image>
@@ -67,14 +74,6 @@ based on:       Switch Theme for Launchbox by Grila
 			<color>${secondaryColor}</color>
 		</text>	
 	
-	</view>
-	
-	<view name="basic, detailed, video">
-		
-		<text name="system_name_1" extra="true">
-			<color>${secondaryColor}</color>
-		</text>	
-		
 	</view>
 	
 	<view name="basic">
